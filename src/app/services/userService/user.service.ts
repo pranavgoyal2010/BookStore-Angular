@@ -19,4 +19,8 @@ export class UserService {
   forgetPasswordApi(data: object) {
     return this.httpService.forgetPassword('user/forgetpassword', data)
   }
+
+  resetPasswordApi(data: object) {
+    return this.httpService.resetPassword('user/resetpassword', data)
+  }
 }

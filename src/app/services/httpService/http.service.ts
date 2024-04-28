@@ -26,4 +26,8 @@ export class HttpService {
   forgetPassword(endpoint: string, data: Object): Observable<any> {
     return this.httpClient.post<any>(this.BaseUrl + endpoint, data);
   }
+
+  resetPassword(endpoint: string, data: Object): Observable<any> {
+    return this.httpClient.post<any>(this.BaseUrl + endpoint, data);
+  }
 }

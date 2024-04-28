@@ -4,46 +4,48 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/userService/user.service';
 
 @Component({
-  selector: 'app-forgetpassword',
-  templateUrl: './forgetpassword.component.html',
-  styleUrls: ['./forgetpassword.component.scss']
+  selector: 'app-resetpassword',
+  templateUrl: './resetpassword.component.html',
+  styleUrls: ['./resetpassword.component.scss']
 })
-export class ForgetpasswordComponent implements OnInit {
+export class ResetpasswordComponent implements OnInit {
 
-  forgetPasswordForm!: FormGroup;
+  loginForm!: FormGroup;
   submitted = false;
   
   constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.forgetPasswordForm = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      // password: ['', Validators.required]
+      password: ['', Validators.required],
+      otp: ['', Validators.required]
     });
   }
 
   // Convenience getter for easy access to form fields
-  get f() { return this.forgetPasswordForm.controls; }
+  get f() { return this.loginForm.controls; }
 
-  handleForgetPassword() {
+  handleLogin() {
     this.submitted = true;
 
     // Stop here if form is invalid
-    if (this.forgetPasswordForm.invalid) {
+    if (this.loginForm.invalid) {
       return;
     }
-    const {email}= this.forgetPasswordForm.value;
+    const {email, password, otp}= this.loginForm.value;
 
-    this.userService.forgetPasswordApi({
-      email : email      
+    this.userService.resetPasswordApi({
+      email : email,
+      newPassword : password,
+      otp : otp
     }).subscribe( results =>{console.log(results)},error=>{console.log(error)});
 
     // Handle login logic here, for example, navigate to dashboard
-    console.log('Email sent successfully', this.forgetPasswordForm.value);
+    console.log('Password reset successful', this.loginForm.value);
     
-    this.router.navigate(['/resetpassword']);
-  }
-
+    this.router.navigate(['']);
+  }  
   
 
 }
