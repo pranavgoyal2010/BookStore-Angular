@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { error } from 'console';
+import { UserService } from 'src/app/services/userService/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -8,9 +11,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   registerForm!: FormGroup;
-  submitted = false;
+  submitted = false;  
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private userService:UserService, private formBuilder: FormBuilder, private  router: Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -23,21 +26,34 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  get formControls() { return this.registerForm.controls; }
+  get f() { return this.registerForm.controls; }
 
   handleRegister() {
     this.submitted = true;
+      // stop here if form is invalid
+      if (this.registerForm.invalid) {
+          return;
+      }
 
-    if (this.registerForm.invalid) {
-      return;
-    }
+      const {firstName, lastName, email, password, mobileNumber, role}= this.registerForm.value;
 
-    // Call your register service or handle registration logic here
-    console.log(this.registerForm.value);
+      this.userService.registerApi({
+        firstName : firstName,
+        lastName : lastName,
+        email : email,
+        password : password,
+        mobileNo: mobileNumber,
+        role: role
+      }).subscribe( results =>{console.log(results)},error=>{console.log(error)});
+
+      // display form values on success
+      console.log('Registration done!');
+      console.log(this.registerForm.value);   
+      this.handleSignIn();
   }
 
   handleSignIn() {
     // Handle sign in navigation or logic here
-    console.log('Sign in clicked');
+    this.router.navigate(['']);
   }
 }
