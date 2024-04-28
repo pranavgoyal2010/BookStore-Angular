@@ -22,4 +22,8 @@ export class HttpService {
   registerUser(endpoint: string, data: Object): Observable<any> {
     return this.httpClient.post<any>(this.BaseUrl + endpoint, data);
   }
+
+  forgetPassword(endpoint: string, data: Object): Observable<any> {
+    return this.httpClient.post<any>(this.BaseUrl + endpoint, data);
+  }
 }

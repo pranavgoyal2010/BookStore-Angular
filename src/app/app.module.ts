@@ -14,12 +14,14 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
 
 @NgModule({
   declarations: [
     AppComponent,    
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    ForgetpasswordComponent
   ],
   imports: [
     BrowserModule,

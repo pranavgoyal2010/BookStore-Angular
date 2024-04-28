@@ -1,58 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { error } from 'console';
 import { UserService } from 'src/app/services/userService/user.service';
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss'],
-  host: {
-    class: 'app-signin-cnt'
-  }  
+  selector: 'app-forgetpassword',
+  templateUrl: './forgetpassword.component.html',
+  styleUrls: ['./forgetpassword.component.scss']
 })
-export class SigninComponent implements OnInit {
+export class ForgetpasswordComponent implements OnInit {
 
-  loginForm!: FormGroup;
+  forgetPasswordForm!: FormGroup;
   submitted = false;
   
   constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
+    this.forgetPasswordForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      // password: ['', Validators.required]
     });
   }
 
   // Convenience getter for easy access to form fields
-  get f() { return this.loginForm.controls; }
+  get f() { return this.forgetPasswordForm.controls; }
 
-  handleLogin() {
+  handleForgetPassword() {
     this.submitted = true;
 
     // Stop here if form is invalid
-    if (this.loginForm.invalid) {
+    if (this.forgetPasswordForm.invalid) {
       return;
     }
-    const {email, password}= this.loginForm.value;
+    const {email}= this.forgetPasswordForm.value;
 
-    this.userService.loginApi({
-      email : email,
-      password : password
+    this.userService.forgetPasswordApi({
+      email : email      
     }).subscribe( results =>{console.log(results)},error=>{console.log(error)});
 
     // Handle login logic here, for example, navigate to dashboard
-    console.log('Login successful', this.loginForm.value);
+    console.log('Email sent successfully', this.forgetPasswordForm.value);
     //this.router.navigate(['/dashboard/books']);
   }
 
-  handleCreateAccount(){
-    this.router.navigate(['/signup']);
-  }
+  
 
-  handleForgetPassword(){
-    this.router.navigate(['/forgotpassword']);
-  }
 }
