@@ -18,6 +18,8 @@ import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassw
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { BookstoreheaderComponent } from './components/bookstoreheader/bookstoreheader.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu'; // Import MatMenuModule
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatSelectModule,
     MatOptionModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

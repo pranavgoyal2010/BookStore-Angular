@@ -10,6 +10,7 @@ import { SEARCH_ICON } from 'src/assets/svg-icons';
   styleUrls: ['./bookstoreheader.component.scss']
 })
 export class BookstoreheaderComponent implements OnInit {
+  
 
   constructor(iconRegistry: MatIconRegistry,sanitizer: DomSanitizer) {
     iconRegistry.addSvgIconLiteral("Search-icon", sanitizer.bypassSecurityTrustHtml(SEARCH_ICON))
