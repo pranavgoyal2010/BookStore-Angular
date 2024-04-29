@@ -20,6 +20,8 @@ import { BookstoreheaderComponent } from './components/bookstoreheader/bookstore
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu'; // Import MatMenuModule
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { DisplaybookComponent } from './components/displaybook/displaybook.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     SigninComponent,
     ForgetpasswordComponent,
     ResetpasswordComponent,
-    BookstoreheaderComponent
+    BookstoreheaderComponent,
+    DisplaybookComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
