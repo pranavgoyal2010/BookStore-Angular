@@ -16,6 +16,8 @@ import { MatOptionModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { BookstoreheaderComponent } from './components/bookstoreheader/bookstoreheader.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     SignupComponent,
     SigninComponent,
     ForgetpasswordComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    BookstoreheaderComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     MatRadioModule,
     MatSelectModule,
     MatOptionModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
