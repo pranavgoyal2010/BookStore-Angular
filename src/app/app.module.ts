@@ -22,6 +22,7 @@ import { MatMenuModule } from '@angular/material/menu'; // Import MatMenuModule
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DisplaybookComponent } from './components/displaybook/displaybook.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { BookscontainerComponent } from './components/bookscontainer/bookscontainer.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ResetpasswordComponent,
     BookstoreheaderComponent,
     DisplaybookComponent,
-    DashboardComponent
+    DashboardComponent,
+    BookscontainerComponent
   ],
   imports: [
     BrowserModule,

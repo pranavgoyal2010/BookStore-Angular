@@ -5,15 +5,20 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { BookscontainerComponent } from './components/bookscontainer/bookscontainer.component';
+import { DisplaybookComponent } from './components/displaybook/displaybook.component';
 
 const routes: Routes = [
   {
-    path:'', component:DashboardComponent, children: [
-      //{path: '', component:NotescontainerComponent}
+    path:'', component:DashboardComponent,
+    children:[
+      {
+        path:'', component:BookscontainerComponent
+      }
     ]
-  },  
+  },
   {
-    path: 'login',component:SigninComponent
+    path: 'signin',component:SigninComponent
   },
   {
     path: 'signup', component:SignupComponent
