@@ -7,6 +7,7 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BookscontainerComponent } from './components/bookscontainer/bookscontainer.component';
 import { DisplaybookComponent } from './components/displaybook/displaybook.component';
+import { QuickviewComponent } from './components/quickview/quickview.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,9 @@ const routes: Routes = [
     children:[
       {
         path:'', component:BookscontainerComponent
+      },
+      {
+        path:'quickview', component:QuickviewComponent
       }
     ]
   },

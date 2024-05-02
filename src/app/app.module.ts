@@ -23,6 +23,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DisplaybookComponent } from './components/displaybook/displaybook.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BookscontainerComponent } from './components/bookscontainer/bookscontainer.component';
+import { QuickviewComponent } from './components/quickview/quickview.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { BookscontainerComponent } from './components/bookscontainer/bookscontai
     BookstoreheaderComponent,
     DisplaybookComponent,
     DashboardComponent,
-    BookscontainerComponent
+    BookscontainerComponent,
+    QuickviewComponent
   ],
   imports: [
     BrowserModule,
